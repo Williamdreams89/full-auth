@@ -141,3 +141,15 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Configure customed user model
 
 AUTH_USER_MODEL = "accountsapp.User"
+
+
+# Configuration of emailing 
+# import django.core.mail.backends.smtp
+
+EMAIL_BACKENDS = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_SSL = True
+EMAIL_USE_TSL = False
+EMAIL_HOST = "livingcareservices.org"
+EMAIL_PORT = 465
+EMAIL_HOST_USERNAME = env("EMAIL_HOST_USERNAME")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
