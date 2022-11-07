@@ -19,7 +19,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name", "last_name", "department"]
+    REQUIRED_FIELDS = ["username","first_name", "last_name", "department"]
 
     @property
     def full_name(self):
@@ -29,4 +29,4 @@ class User(AbstractBaseUser, PermissionsMixin):
         return "{}-{}".format(self.full_name, self.email)
 
     class Meta:
-        ordering= ["-department", "name"]
+        ordering= ["-department", "username"]
