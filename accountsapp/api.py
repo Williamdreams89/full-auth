@@ -27,10 +27,10 @@ class UserRegisterAPI(GenericAPIView):
 
         abs_url = "https://{}{}?token={}".format(current_site,rel_url,stringified_token)
 
-        username = user.username
+        username = user.full_name
         email_body = "Hi {}, \n Please use click the link below to verify your account: \n {}".format(username, abs_url)
         email_subject = "Account Verification Mail"
-        email_to = user.full_name
+        email_to = user.email
         data = {"email_subject": email_subject, "email_body":email_body, "email_to":email_to}
         Utils.send_email(data)
 
